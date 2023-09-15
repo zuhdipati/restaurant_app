@@ -44,6 +44,13 @@ class RestaurantSearchPage extends StatelessWidget {
                   "Restoran tidak ditemukan",
                 ),
               );
+            } else if (controller.hasError.value) {
+              return const Center(
+                child: Text(
+                  'No Internet',
+                  style: TextStyle(color: Colors.red),
+                ),
+              );
             } else if (controller.isLoading.value) {
               return const Center(
                   child: CircularProgressIndicator(

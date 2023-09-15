@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 import 'package:restaurant_app/data/model/restaurant_list_model.dart';
@@ -15,6 +16,14 @@ class ListController extends GetxController {
   final hasError = RxBool(false);
 
   Future getListRestaurant() async {
+    var connectivityResult = await Connectivity().checkConnectivity();
+
+    if (connectivityResult == ConnectivityResult.none) {
+      isLoading.value = false;
+      hasError.value = true;
+      return;
+    }
+
     var url = Uri.parse(_baseUrl + _list);
 
     var response = await http.get(url);

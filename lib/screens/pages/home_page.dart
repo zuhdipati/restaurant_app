@@ -101,7 +101,7 @@ class RestaurantListPage extends GetView {
           } else if (listRestaurant.hasError.value) {
             return const Center(
               child: Text(
-                'Failed to load restaurant details',
+                'No Internet',
                 style: TextStyle(color: Colors.red),
               ),
             );

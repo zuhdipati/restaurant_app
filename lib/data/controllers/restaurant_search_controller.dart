@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restaurant_app/data/model/restaurant_list_model.dart';
@@ -10,10 +11,20 @@ class SearchResController extends GetxController {
   static const String _search = 'search?q=';
 
   final isLoading = RxBool(true);
+  final hasError = RxBool(false);
+
   var listSearch = [].obs;
   TextEditingController searchController = TextEditingController();
 
   Future<void> searchRestaurant(String query) async {
+    var connectivityResult = await Connectivity().checkConnectivity();
+
+    if (connectivityResult == ConnectivityResult.none) {
+      isLoading.value = false;
+      hasError.value = true;
+      return;
+    }
+
     try {
       isLoading.value = true;
       var url = Uri.parse(_baseUrl + _search + query);
