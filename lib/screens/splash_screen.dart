@@ -9,7 +9,7 @@ class SplashScreen extends GetView {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.off(() => RestaurantListPage());
+      Get.off(() => HomePage());
     });
 
     return Scaffold(

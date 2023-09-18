@@ -31,6 +31,7 @@ class ListController extends GetxController {
       var data = ListRestaurant.fromJson(json.decode(response.body));
       list.value = data;
       isLoading.value = false;
+      refresh();
     } else {
       isLoading.value = false;
       hasError.value = true;

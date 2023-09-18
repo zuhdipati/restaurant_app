@@ -14,8 +14,8 @@ final TextTheme myTextTheme = TextTheme(
       fontSize: 16, fontWeight: FontWeight.w400, letterSpacing: 0.25),
   labelLarge: GoogleFonts.roboto(
       fontSize: 14, fontWeight: FontWeight.w500, letterSpacing: 1.25),
-  bodySmall: GoogleFonts.roboto(
-      fontSize: 12, fontWeight: FontWeight.w400, letterSpacing: 0.4),
+  labelMedium: GoogleFonts.roboto(
+      fontSize: 13, fontWeight: FontWeight.w400, letterSpacing: 0.4),
   labelSmall: GoogleFonts.roboto(
-      fontSize: 10, fontWeight: FontWeight.w400, letterSpacing: 1.5),
+      fontSize: 12, fontWeight: FontWeight.w400, letterSpacing: 1.5),
 );
